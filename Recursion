@@ -1,0 +1,22 @@
+public class Recurs {
+    public static void main(String[] args) {
+        //Print 0-4
+        //Without recursion
+        for (int i=0;i<5;i++){
+            System.out.println(i);
+        }
+        
+        //Print 0-4
+        //With recursion
+        int i =0;
+        recurs(i);
+    }
+
+    public static void recurs(int i){
+        if (i<5){
+            System.out.println(i);
+            i++;
+            recurs(i);
+        }
+    }
+}
