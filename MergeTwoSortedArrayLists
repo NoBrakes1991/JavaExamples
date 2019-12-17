@@ -1,0 +1,42 @@
+// merge 2 sorted ArrayLists from ArrayList A & B to ArrayList A
+
+import java.util.*;
+
+public class Test {
+    public static void main(String[] args) {
+        ArrayList <Integer> a = new ArrayList<Integer>();
+        a.add(-2147483648);
+        a.add(3);
+        a.add(2147483647);
+
+        ArrayList <Integer> b = new ArrayList<Integer>();
+        b.add(-2147483648);
+        b.add(-1);
+        b.add(2147483647);
+        System.out.println(a);
+        System.out.println(a);
+        merge(a,b);
+
+        System.out.println(a);
+    }
+    static void merge(ArrayList<Integer> a, ArrayList<Integer> b) {
+
+        ArrayList <Integer> result = new ArrayList<Integer>();
+
+        int resultArraySize = a.size()+b.size();
+        int leftIndex = 0;
+        int rightIndex = 0;
+
+        while (leftIndex+rightIndex<resultArraySize){
+            if (rightIndex==b.size()||leftIndex!=a.size()
+                    && a.get(leftIndex) < b.get(rightIndex)){
+                result.add(leftIndex+rightIndex,a.get(leftIndex++));
+            }
+            else {
+                result.add(leftIndex+rightIndex,b.get(rightIndex++));
+            }
+        }
+        a.clear();
+        a.addAll(result);
+    }
+}
